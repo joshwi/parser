@@ -73,6 +73,7 @@ func ReadSchema(filename string) []Schema {
 	return output
 }
 
+//GetSchema returns schema file from repo
 func GetSchema() []Schema {
 	output := ReadSchema("./schema.json")
 	return output
