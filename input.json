@@ -1,0 +1,12 @@
+[
+    {
+        "match": "(?m)(?P<interface>[\\w\/\\.\\-]+) +is +(?P<enabled>[\\w\\s]+)(?: +\\S+)?, +line +protocol +is +(?P<line_protocol>\\w+)(?: *\\((?P<attribute>\\S+)\\)|( +\\, +Autostate +(?P<autostate>\\S+)))?.*",
+        "level": 1,
+        "submatch": []
+    },
+    {
+        "match": "(?m)MTU +(?P<mtu>\\d+) +bytes(, +sub +MTU +(?P<sub_mtu>\\d+))?, +BW +(?P<bandwidth>[0-9]+) +Kbit(\/sec)?, +DLY +(?P<delay>[0-9]+) +usec,",
+        "level": 2,
+        "submatch": []
+    }
+]
