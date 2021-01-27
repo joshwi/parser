@@ -10,6 +10,7 @@ import (
 
 //Schema structure
 type Schema struct {
+	Command   string    `json:"command"`
 	HwType    string    `json:"hw_type"`
 	SwType    string    `json:"sw_type"`
 	SwVersion []string  `json:"sw_version"`
@@ -55,6 +56,25 @@ func ReadConfig(filename string) []Config {
 	if err != nil {
 		fmt.Print(err)
 	}
+	return output
+}
+
+//ReadSchema function to convert json to Schema struct
+func ReadSchema(filename string) []Schema {
+	data, err := ioutil.ReadFile(filename)
+	if err != nil {
+		fmt.Print(err)
+	}
+	var output []Schema
+	err = json.Unmarshal(data, &output)
+	if err != nil {
+		fmt.Print(err)
+	}
+	return output
+}
+
+func GetSchema() []Schema {
+	output := ReadSchema("./schema.json")
 	return output
 }
 
