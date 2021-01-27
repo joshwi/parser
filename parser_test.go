@@ -9,7 +9,7 @@ func TestParse(t *testing.T) {
 	text := `test-device-gw1#show interface
 	GigabitEthernet0/0/0 is administratively down, line protocol is down`
 
-	schema := ReadSchema("./schema.json")
+	schema := GetSchema()
 	config := []Config{}
 
 	for n := range schema {
